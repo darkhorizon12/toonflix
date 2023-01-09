@@ -1,87 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/widgets/Button.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  const App({super.key});
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  int counter = 0;
+  List<int> numbers = [];
+  void onClicked() {
+    setState(() {
+      numbers.add(numbers.length);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color(0xFF181818),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+        backgroundColor: const Color(0xFFF4EDDB),
+        body: Center(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 80,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      const Text(
-                        "Hey, Selena",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                      Text(
-                        "Welcome back",
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.8),
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 120,
-              ),
-              Text(
-                'Total Balance',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.white.withOpacity(0.8),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
               const Text(
-                "\$5 184 543",
+                'Click counter',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 48,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 30,
                 ),
               ),
-              const SizedBox(
-                height: 25,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Button(
-                    text: 'Transfer',
-                    bgColor: Color(0xFFF1B33B),
-                    textColor: Colors.black,
-                  ),
-                  Button(
-                    text: 'Request',
-                    bgColor: Color(0xFF1F2123),
-                    textColor: Colors.white,
-                  ),
-                ],
+              for (var n in numbers) Text('$n'),
+              IconButton(
+                iconSize: 40,
+                onPressed: onClicked,
+                icon: const Icon(Icons.add_box_outlined),
               ),
             ],
           ),
