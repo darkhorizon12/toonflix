@@ -62,3 +62,13 @@ samples, guidance on mobile development, and a full API reference.
         
     })
     ```
+
+## BuildContext
+* 위젯 트리의 정보를 다루기 위한 컨텍스트
+
+## State Widget life cycle
+* initState: 초기화할 때 호출. build보다 먼저 호출됨.
+* dispose: 스크린에서 위젯이 제거될 때 호출
+
+## Flutter 모듈 사용
+[Flutter 패키지](https://pub.dev)
