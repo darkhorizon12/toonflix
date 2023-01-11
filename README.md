@@ -72,3 +72,6 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Flutter 모듈 사용
 [Flutter 패키지](https://pub.dev)
+* http
+* url_launcher
+* shared_preferences
